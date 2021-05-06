@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Car Drive</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+        <script type="text/javascript" src="simpleGame.js"></script>
+        <script type="text/javascript">
+        
+        //simple game with a car you can move simpleGame.js is the downloaded game library
+        var scene;
+        var car;
+
+        function init(){
+            scene = new Scene(); // Creates new scene
+            car = new Sprite(scene, "./images/car.png", 90, 40); //name of scene, the image file, width, height
+            car.setAngle(270); // angle it moves
+            car.setSpeed(0); //car speed
+            scene.start(); // starts game engine causes update to run 20xs per second
+        }   //end init
+
+            function update(){ //happens once per frame 20xs per scene the page is drawn then redrawn many times per second
+            scene.clear(); // clears scene so it can be redrawn if you dont it creates a streak because the images stay on page
+            
+            if (keysDown [K_LEFT]){
+                car.changeAngleBy(-5);
+            }
+
+            if (keysDown [K_RIGHT]){
+                car.changeAngleBy(5);
+            }
+
+            if (keysDown [K_UP]){
+                car.changeSpeedBy(2);
+            }
+
+            if (keysDown [K_DOWN]){
+                car.changeSpeedBy(-1);
+            }
+            
+             car.update(); //whatever its supposed to do then draw itself
+             //end update
+
+             document.getElementById("text1").style.color = "green";
+
+            }
+       </script>
+        </head>
+        <body onload="init()">
+            
+        <h1 id="text1">Drive your New Car!!!!</h1>    
+                
+    </body>
+</html>

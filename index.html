@@ -17,8 +17,9 @@
         function init(){
             scene = new Scene(); // Creates new scene
             car = new Sprite(scene, "./images/car.png", 90, 40); //name of scene, the image file, width, height
-            car.setAngle(270); // angle it moves
+            car.setAngle(270); // direction it is facing
             car.setSpeed(0); //car speed
+            car.setBoundAction (STOP);
             scene.start(); // starts game engine causes update to run 20xs per second
         }   //end init
 
@@ -41,7 +42,7 @@
                 car.changeSpeedBy(-1);
             }
             
-             car.update(); //whatever its supposed to do then draw itself
+             car.update(); //whatever its supposed to do then draw itself updates happen 20 times per second
              //end update
 
              document.getElementById("text1").style.color = "green";
@@ -51,7 +52,7 @@
         </head>
         <body onload="init()">
             
-        <h1 id="text1">Drive your New Car!!!!</h1>    
+        <h1 id="text1">Use the Arrow Keys to Drive your New Car</h1>   
                 
     </body>
 </html>
